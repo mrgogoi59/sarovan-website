@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/sarovan-app-icon-180.png">
+<meta property="og:image" content="https://sarovan.com/assets/og-image.png">
+<meta name="twitter:image" content="https://sarovan.com/assets/og-image.png">
 <style>
 :root{
   --bg:#F3F7F5;
@@ -76,7 +80,7 @@ p{margin:0}
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--serif);font-size:1.55rem;color:var(--ink)}
-.brand svg{width:34px;height:34px}
+.brand img{height:34px;width:auto;display:block}
 .nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
 .nav-links a{text-decoration:none;color:var(--muted);font-weight:500}
 .nav-links a:hover{color:var(--ink)}
@@ -246,21 +250,18 @@ p{margin:0}
 footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
 .foot .brand{font-size:1.25rem}
-.foot .brand svg{width:28px;height:28px}
+.foot .brand img{height:28px;width:auto;display:block}
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <nav class="wrap nav" aria-label="Main">
-    <a class="brand" href="#top" aria-label="Sarovan home">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="var(--teal)"/>
-        <circle cx="20" cy="15" r="6" fill="var(--gold)"/>
-        <path d="M7 25c4 0 4-2.5 8.5-2.5S20 25 24 25s4.5-2.5 9-2.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <path d="M10 30c3 0 3.5-2 6.5-2s3.5 2 7 2 3.5-2 6.5-2" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".6"/>
-      </svg>
-      Sarovan
+    <a class="brand" href="/" aria-label="Sarovan home">
+      <picture>
+        <source srcset="/assets/sarovan-logo-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/sarovan-logo.svg" alt="Sarovan" width="204" height="64">
+      </picture>
     </a>
     <ul class="nav-links">
       <li><a href="#care">Care</a></li>
@@ -600,13 +601,11 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top" aria-label="Sarovan home">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="var(--teal)"/>
-        <circle cx="20" cy="15" r="6" fill="var(--gold)"/>
-        <path d="M7 25c4 0 4-2.5 8.5-2.5S20 25 24 25s4.5-2.5 9-2.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-      </svg>
-      Sarovan
+    <a class="brand" href="/" aria-label="Sarovan home">
+      <picture>
+        <source srcset="/assets/sarovan-logo-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/sarovan-logo.svg" alt="Sarovan" width="204" height="64">
+      </picture>
     </a>
     <ul class="foot-links" style="display:flex;flex-wrap:wrap;gap:1.2rem;list-style:none;margin:0;padding:0">
       <li><a href="/sample-report/">Sample report</a></li>

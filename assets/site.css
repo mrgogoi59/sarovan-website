@@ -71,7 +71,7 @@ p{margin:0}
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--serif);font-size:1.55rem;color:var(--ink)}
-.brand svg{width:34px;height:34px}
+.brand img{height:34px;width:auto;display:block}
 .nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
 .nav-links a{text-decoration:none;color:var(--muted);font-weight:500}
 .nav-links a:hover{color:var(--ink)}
@@ -170,7 +170,7 @@ td:first-child{white-space:normal}
 footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
 .foot .brand{font-size:1.25rem}
-.foot .brand svg{width:28px;height:28px}
+.foot .brand img{height:28px;width:auto;display:block}
 .foot-links{display:flex;flex-wrap:wrap;gap:1.2rem;list-style:none;margin:0;padding:0}
 .foot-links a{color:var(--muted)}
 
