@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sarovan | Smart elder care in Guwahati</title>
-<meta name="description" content="Sarovan is a smart elder care service for families whose parents live in Guwahati. Weekly home visits, daily calls with medicine reminders, and updates on your phone.">
+<meta name="description" content="Sarovan is the family member on the ground for parents in Guwahati whose children live far away. Daily calls, weekly home visits, and every update on your phone.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
@@ -90,7 +90,10 @@ p{margin:0}
 /* hero */
 .hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,5.5rem) 0 0}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:3rem;align-items:center}
-.hero h1{max-width:12em}
+.hero h1{max-width:12em;font-size:min(calc(5.36vw - 4.7px),3.55rem)} /* keeps "The family member" on one line, as in the deck */
+@media (max-width:860px){.hero h1{font-size:clamp(1.7rem,calc((100vw - 40px) / 10.1),3.55rem)}}
+.hero .kicker{color:var(--teal);font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+.hero .nowrap{white-space:nowrap}
 .hero .lede{margin-top:1.4rem}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .enrol-note{display:flex;align-items:center;gap:.7rem;margin-top:1.8rem;color:var(--muted);font-size:.98rem}
@@ -279,8 +282,9 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1>You live far away. Your parents shouldn't feel it.</h1>
-      <p class="lede">Sarovan is a smart elder care service for families with parents in Guwahati. A care manager calls them every day, visits every week, looks after medicines and appointments, and sends every update to your phone.</p>
+      <p class="kicker">Smart elder care in Guwahati</p>
+      <h1>The family member <span class="nowrap">on the ground.</span></h1>
+      <p class="lede">Your parents live in Guwahati. You live in another city or abroad. Sarovan gives them one local care manager, the same person every time. We call every day, visit every week, look after medicines and appointments, and send every update to your phone.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">Book a free call</a>
         <a class="btn btn-ghost" href="#care">See what's included</a>
