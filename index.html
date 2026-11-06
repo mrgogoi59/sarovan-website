@@ -117,10 +117,10 @@ p{margin:0}
 .ph-top b{display:block;font-size:1rem}
 .ph-top small{color:var(--muted);font-size:.8rem}
 .vitals{background:var(--surface);border-radius:18px;padding:12px 14px;border:1px solid var(--line);margin-bottom:10px}
-.vitals-row{display:flex;justify-content:space-between;gap:.4rem;text-align:center}
-.vitals-row div{flex:1}
-.vitals-row b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem}
-.vitals-row small{color:var(--muted);font-size:.72rem}
+.vitals-table{width:100%;border-collapse:collapse;text-align:center}
+.vitals-table thead th{color:var(--muted);font-size:.72rem;font-weight:400;padding-bottom:2px}
+.vitals-table tbody th{text-align:left;font-size:.8rem;font-weight:700;padding-right:.4rem}
+.vitals-table td{font-family:var(--serif);font-size:1.1rem;line-height:1.35;white-space:nowrap}
 .spark{margin-top:8px;height:34px;width:100%}
 .feed{display:flex;flex-direction:column;gap:8px}
 .note{background:var(--surface);border-radius:16px;padding:10px 12px;border:1px solid var(--line);display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
@@ -130,7 +130,7 @@ p{margin:0}
 :root[data-theme="dark"] .note .ic.gold{color:var(--gold)}
 .note .ic svg{width:16px;height:16px}
 .note b{font-size:.86rem;display:flex;justify-content:space-between;gap:.5rem}
-.note b time{color:var(--muted);font-weight:500;font-size:.72rem}
+.note b time{color:var(--muted);font-weight:500;font-size:.72rem;white-space:nowrap}
 .note p{font-size:.8rem;color:var(--muted);line-height:1.4;margin-top:2px}
 @media (prefers-reduced-motion: no-preference){
   .feed .note{opacity:0;transform:translateY(12px);animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards}
@@ -304,11 +304,13 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
             <div><b>Maa and Deuta</b><small>Care manager: Priyanka</small></div>
           </div>
           <div class="vitals">
-            <div class="vitals-row">
-              <div><b>132/84</b><small>BP</small></div>
-              <div><b>97%</b><small>Oxygen</small></div>
-              <div><b>108</b><small>Sugar</small></div>
-            </div>
+            <table class="vitals-table">
+              <thead><tr><td></td><th scope="col">BP</th><th scope="col">Oxygen</th><th scope="col">Sugar</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Maa</th><td>132/84</td><td>97%</td><td>108</td></tr>
+                <tr><th scope="row">Deuta</th><td>126/80</td><td>98%</td><td>114</td></tr>
+              </tbody>
+            </table>
             <svg class="spark" viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 22 L30 18 L60 24 L90 16 L120 19 L150 12 L180 15 L210 10 L240 13" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="240" cy="13" r="3" fill="var(--gold)"/>
@@ -317,7 +319,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
           <div class="feed">
             <div class="note">
               <div class="ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></div>
-              <div><b>Home visit done <time>11:20 am</time></b><p>All readings in their usual range. Deuta walked 20 minutes today.</p></div>
+              <div><b>Home visit done <time>11:20 am</time></b><p>All readings within the doctor's limits. Deuta walked 20 minutes today.</p></div>
             </div>
             <div class="note">
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></div>
