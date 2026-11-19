@@ -136,7 +136,14 @@ p{margin:0}
 /* app screenshot */
 .app-shot{position:relative;z-index:2;width:300px;max-width:100%;margin:0 0 24px}
 .phone{background:var(--surface);border-radius:38px;padding:14px;box-shadow:var(--shadow);border:1px solid var(--line)}
-.phone img{display:block;width:100%;height:auto;border-radius:26px;border:1px solid var(--line)}
+.phone video{display:block;width:100%;height:auto;aspect-ratio:720/1336;border-radius:26px;border:1px solid var(--line);background:var(--bg)}
+.shot-note{display:flex;align-items:center;justify-content:space-between;gap:.6rem;min-height:48px;margin-top:14px;padding:.25rem .3rem .25rem 1.1rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--muted);font-size:.9rem;line-height:1.3}
+.shot-note button{flex:none;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:var(--sage);color:var(--teal);display:grid;place-items:center;cursor:pointer}
+.shot-note button[hidden]{display:none}
+.shot-note button:hover{background:var(--hill-1)}
+.shot-note svg{width:18px;height:18px;fill:currentColor}
+.shot-note .i-pause,.shot-note .is-playing .i-play{display:none}
+.shot-note .is-playing .i-pause{display:block}
 
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:1rem}
@@ -324,8 +331,14 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       <div class="sun" aria-hidden="true"></div>
       <figure class="app-shot">
         <div class="phone">
-          <img src="/assets/app-family-home.jpg" width="720" height="1337" fetchpriority="high" alt="The Sarovan family app for a sample family, Maa and Papa: the next home visit and check-in call, a lab test waiting for approval, and Maa's latest readings with an amber flag.">
+          <video id="app-video" width="720" height="1336" poster="/assets/app-walkthrough-poster.jpg" muted loop playsinline preload="none" disableremoteplayback aria-label="A video of the Sarovan family app with a sample family, Maa and Papa. It scrolls the Home screen: a reading outside the doctor's limits, two requests waiting for approval, the latest readings and the updates. Then it opens Health, Care and Records.">
+            <source src="/assets/app-walkthrough.mp4" type="video/mp4">
+          </video>
         </div>
+        <figcaption class="shot-note">
+          <span>Sample family, not real people</span>
+          <button type="button" id="app-video-toggle" aria-label="Play the app video" hidden><svg class="i-play" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="i-pause" aria-hidden="true" viewBox="0 0 24 24"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg></button>
+        </figcaption>
       </figure>
     </div>
   </div>
@@ -685,6 +698,35 @@ document.addEventListener("keydown", function (e) {
   var m = document.querySelector(".menu[open]");
   if (e.key === "Escape" && m) { m.removeAttribute("open"); m.querySelector("summary").focus(); }
 });
+
+// The app video in the top section. It plays only while it is on screen, and not at all
+// for visitors who have asked their device for less motion or less data. The round
+// button beside "Sample family" plays and pauses it.
+(function () {
+  var v = document.getElementById("app-video"), b = document.getElementById("app-video-toggle");
+  if (!v || !b || !v.play) return;
+  var lessMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lessData = navigator.connection && navigator.connection.saveData;
+  var wanted = !lessMotion && !lessData, onScreen = false;
+  function sync() {
+    if (wanted && onScreen) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    else v.pause();
+  }
+  function show() {
+    var playing = !v.paused;
+    b.classList.toggle("is-playing", playing);
+    b.setAttribute("aria-label", playing ? "Pause the app video" : "Play the app video");
+  }
+  v.addEventListener("play", show);
+  v.addEventListener("pause", show);
+  b.addEventListener("click", function () { wanted = v.paused; sync(); });
+  b.hidden = false;
+  show();
+  if ("IntersectionObserver" in window) {
+    // Counted as on screen once a fifth of it shows. (Browsers disagree on isIntersecting below the threshold.)
+    new IntersectionObserver(function (entries) { onScreen = entries[entries.length - 1].intersectionRatio >= 0.19; sync(); }, { threshold: 0.2 }).observe(v);
+  } else { onScreen = true; sync(); }
+})();
 </script>
 </body>
 </html>
