@@ -12,7 +12,15 @@
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/sarovan-app-icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarovan.com/sample-report/">
+<meta property="og:title" content="A sample monthly care report | Sarovan, Guwahati">
+<meta property="og:description" content="See exactly what Sarovan sends you each month about your parents in Guwahati: readings, visits, medicines, appointments and what changed.">
 <meta property="og:image" content="https://sarovan.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sarovan: the family member on the ground, in Guwahati. With the founders, Priyanka Gogoi and Kuldeep Gogoi.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sarovan.com/assets/og-image.png">
 </head>
 <body>
@@ -29,9 +37,24 @@
       <li><a href="/#care">Care</a></li>
       <li><a href="/#how">How it works</a></li>
       <li><a href="/#safety">Safety</a></li>
+      <li><a href="/sample-report/" aria-current="page">Sample report</a></li>
+      <li><a href="/about/">About us</a></li>
       <li><a href="/#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-primary" href="/#contact">Book a free call</a>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="/#contact">Book a free call</a>
+      <details class="menu">
+        <summary><span class="sr-only">Menu</span><svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+        <ul class="menu-panel">
+          <li><a href="/#care">Care</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#safety">Safety</a></li>
+          <li><a href="/sample-report/" aria-current="page">Sample report</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </details>
+    </div>
   </nav>
 </header>
 
@@ -41,7 +64,7 @@
   <div class="narrow">
     <p class="eyebrow">Sample report</p>
     <h1>What reaches you at the start of every month.</h1>
-    <p class="lede">One page about your parents that you can read in two minutes and forward to your brother without explaining it. This is the thing you are really buying.</p>
+    <p class="lede">A short report about your parents that you can read in a few minutes and forward to your family without explaining it. It is how you see the care we give.</p>
     <div class="callout callout-gold">
       <p>This is an example, written to show you the format. It is not a real family's report. Names, readings and doctors here are made up.</p>
     </div>
@@ -76,7 +99,6 @@
             <tr><td>Blood pressure</td><td>132/82</td><td>134/84</td><td>138/84</td><td>134/82</td><td>140/90 or below</td></tr>
             <tr><td>Oxygen</td><td>98%</td><td>97%</td><td>97%</td><td>98%</td><td>95% or above</td></tr>
             <tr><td>Sugar (fasting)</td><td>118</td><td>120</td><td>126</td><td>122</td><td>80 to 130</td></tr>
-            <tr><td>Weight</td><td>62.4 kg</td><td>62.3 kg</td><td>62.1 kg</td><td>62.2 kg</td><td>Steady</td></tr>
           </tbody>
         </table>
       </div>
@@ -97,7 +119,7 @@
       </div>
       <div class="entry">
         <p class="when">Tuesday 25 August, 10:15 to 11:00</p>
-        <p>Readings taken, all inside the agreed ranges. Medicine box checked and the Metformin refill planned. Shared a quote for the bathroom grab-bar.</p>
+        <p>Readings taken, all inside the agreed ranges. Medicine box checked and the Metformin refill planned. Reminded you about the bathroom grab-bar.</p>
       </div>
 
       <h3>A reading we flagged</h3>
@@ -147,9 +169,9 @@
 
       <h3>What is planned next month</h3>
       <ul>
-        <li>Home visits every Tuesday, with a check-in call on every other day.</li>
+        <li>Home visits every Tuesday, and a check-in call on each of the other six days.</li>
         <li>Metformin refill on 5 September.</li>
-        <li>Grab-bar fitted, if you approve the quote.</li>
+        <li>Grab-bar: for you to arrange. We will check it at the first visit after it is fitted.</li>
       </ul>
 
       <p class="report-foot">Sarovan records and reports. We do not interpret readings. Every medical decision belongs to Mrs A.'s own doctor.</p>
@@ -190,6 +212,10 @@
       <li><a href="/about/">About us</a></li>
       <li><a href="/privacy/">Your data</a></li>
     </ul>
+    <ul class="foot-contact">
+      <li><a href="tel:+918099880272">+91 80998 80272</a></li>
+      <li><a href="mailto:sarovan.care@gmail.com">sarovan.care@gmail.com</a></li>
+    </ul>
     <p>&copy; 2026 Sarovan</p>
   </div>
 </footer>
@@ -199,5 +225,14 @@
   <span>Chat on WhatsApp</span>
 </a>
 
+<script>
+document.querySelectorAll(".menu a").forEach(function (a) {
+  a.addEventListener("click", function () { a.closest("details").removeAttribute("open"); });
+});
+document.addEventListener("keydown", function (e) {
+  var m = document.querySelector(".menu[open]");
+  if (e.key === "Escape" && m) { m.removeAttribute("open"); m.querySelector("summary").focus(); }
+});
+</script>
 </body>
 </html>

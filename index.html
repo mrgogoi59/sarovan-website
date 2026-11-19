@@ -5,12 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sarovan | Smart elder care in Guwahati</title>
 <meta name="description" content="Sarovan is the family member on the ground for parents in Guwahati whose children live far away. Daily calls, weekly home visits, and every update on your phone.">
+<link rel="canonical" href="https://sarovan.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/sarovan-app-icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarovan.com/">
+<meta property="og:title" content="Sarovan | Smart elder care in Guwahati">
+<meta property="og:description" content="Sarovan is the family member on the ground for parents in Guwahati whose children live far away. Daily calls, weekly home visits, and every update on your phone.">
 <meta property="og:image" content="https://sarovan.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sarovan: the family member on the ground, in Guwahati. With the founders, Priyanka Gogoi and Kuldeep Gogoi.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sarovan.com/assets/og-image.png">
 <style>
 :root{
@@ -85,18 +94,33 @@ p{margin:0}
 .nav-links a{text-decoration:none;color:var(--muted);font-weight:500}
 .nav-links a:hover{color:var(--ink)}
 .nav .btn{padding:.75rem 1.2rem;font-size:.95rem}
-@media (max-width:860px){.nav-links{display:none}}
+.nav-links a[aria-current="page"]{color:var(--teal);font-weight:600}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.menu{display:none}
+.menu summary{list-style:none;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary svg{width:22px;height:22px;display:block}
+.menu .i-close,.menu[open] .i-open{display:none}
+.menu[open] .i-close{display:block}
+.menu-panel{position:absolute;top:100%;left:0;right:0;margin:0;padding:.3rem 20px 1rem;list-style:none;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.menu-panel a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:1.1rem;color:var(--ink)}
+.menu-panel li:last-child a{border-bottom:0}
+.menu-panel a[aria-current="page"]{color:var(--teal)}
+@media (max-width:980px){.nav-links{display:none}.menu{display:block}}
+@media (max-width:359px){.nav .btn{padding:.7rem .8rem;font-size:.88rem}.nav .brand img{height:28px}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,5.5rem) 0 0}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:3rem;align-items:center}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:3rem;align-items:center}
+.hero-copy{padding-bottom:185px} /* keeps every line of text above the hills */
 .hero h1{max-width:12em;font-size:min(calc(5.36vw - 4.7px),3.55rem)} /* keeps "The family member" on one line, as in the deck */
 @media (max-width:860px){.hero h1{font-size:clamp(1.7rem,calc((100vw - 40px) / 10.1),3.55rem)}}
 .hero .kicker{color:var(--teal);font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
 .hero .nowrap{white-space:nowrap}
 .hero .lede{margin-top:1.4rem}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-.enrol-note{display:flex;align-items:center;gap:.7rem;margin-top:1.8rem;color:var(--muted);font-size:.98rem}
+.enrol-note{position:relative;z-index:2;display:flex;align-items:center;gap:.7rem;margin-top:1.8rem;color:var(--muted);font-size:.98rem}
 .enrol-note .seats{display:flex}
 .enrol-note .seats span{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;background:var(--sage)}
 .enrol-note .seats span:first-child{margin-left:0;background:var(--gold)}
@@ -106,46 +130,22 @@ p{margin:0}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:560px}
 .sun{position:absolute;width:360px;height:360px;border-radius:50%;background:var(--gold-soft);top:30px;left:50%;transform:translateX(-50%)}
 .sun::after{content:"";position:absolute;inset:60px;border-radius:50%;background:var(--gold);opacity:.35}
-.landscape{position:absolute;left:-40vw;right:-40vw;bottom:0;height:220px;pointer-events:none}
+.landscape{position:absolute;left:0;right:0;bottom:0;height:220px;pointer-events:none;z-index:0}
 .landscape svg{width:100%;height:100%;display:block}
 
-/* phone */
-.phone{position:relative;z-index:2;width:300px;background:var(--surface);border-radius:38px;padding:14px;box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:34px}
-.phone-screen{border-radius:28px;background:var(--bg);padding:18px 14px 20px;min-height:500px}
-.ph-top{display:flex;align-items:center;gap:.7rem;padding:0 4px 14px}
-.ph-avatar{width:42px;height:42px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-family:var(--serif);color:#3B2A08;font-size:1rem}
-.ph-top b{display:block;font-size:1rem}
-.ph-top small{color:var(--muted);font-size:.8rem}
-.vitals{background:var(--surface);border-radius:18px;padding:12px 14px;border:1px solid var(--line);margin-bottom:10px}
-.vitals-table{width:100%;border-collapse:collapse;text-align:center}
-.vitals-table thead th{color:var(--muted);font-size:.72rem;font-weight:400;padding-bottom:2px}
-.vitals-table tbody th{text-align:left;font-size:.8rem;font-weight:700;padding-right:.4rem}
-.vitals-table td{font-family:var(--serif);font-size:1.1rem;line-height:1.35;white-space:nowrap}
-.spark{margin-top:8px;height:34px;width:100%}
-.feed{display:flex;flex-direction:column;gap:8px}
-.note{background:var(--surface);border-radius:16px;padding:10px 12px;border:1px solid var(--line);display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
-.note .ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--sage);color:var(--teal)}
-.note .ic.gold{background:var(--gold-soft);color:#8A5E0B}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .note .ic.gold{color:var(--gold)}}
-:root[data-theme="dark"] .note .ic.gold{color:var(--gold)}
-.note .ic svg{width:16px;height:16px}
-.note b{font-size:.86rem;display:flex;justify-content:space-between;gap:.5rem}
-.note b time{color:var(--muted);font-weight:500;font-size:.72rem;white-space:nowrap}
-.note p{font-size:.8rem;color:var(--muted);line-height:1.4;margin-top:2px}
-@media (prefers-reduced-motion: no-preference){
-  .feed .note{opacity:0;transform:translateY(12px);animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards}
-  .feed .note:nth-child(1){animation-delay:.5s}
-  .feed .note:nth-child(2){animation-delay:1.1s}
-  .feed .note:nth-child(3){animation-delay:1.7s}
-  .feed .note:nth-child(4){animation-delay:2.3s}
-}
-@keyframes rise{to{opacity:1;transform:none}}
+/* app screenshot */
+.app-shot{position:relative;z-index:2;width:300px;max-width:100%;margin:0 0 24px}
+.phone{background:var(--surface);border-radius:38px;padding:14px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.phone img{display:block;width:100%;height:auto;border-radius:26px;border:1px solid var(--line)}
+.demo-link{display:block;margin-top:14px;padding:.65rem 1rem;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--ink);text-decoration:none;text-align:center;font-size:.92rem;line-height:1.4}
+.demo-link b{color:var(--teal);font-weight:700}
+.demo-link:hover b{text-decoration:underline}
 
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:1rem}
+  .hero-copy{padding-bottom:0}
   .hero-visual{min-height:auto;padding-top:2rem}
   .sun{width:280px;height:280px}
-  .phone{width:min(300px,100%)}
 }
 
 /* distance statement */
@@ -202,19 +202,27 @@ p{margin:0}
 @media (max-width:520px){.steps{grid-template-columns:1fr}}
 
 /* safety */
-.trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
 .trust li{border-top:2px solid var(--gold);padding-top:1.5rem}
 .trust .ic{width:48px;height:48px;border-radius:14px;background:var(--sage);color:var(--teal);display:grid;place-items:center;margin-bottom:1rem}
 .trust .ic svg{width:24px;height:24px}
 .trust p{color:var(--muted);margin-top:.5rem}
-@media (max-width:860px){.trust{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:1060px){.trust{grid-template-columns:repeat(2,1fr);gap:2.5rem 2rem}}
+@media (max-width:600px){.trust{grid-template-columns:1fr;gap:2rem}}
+
+/* for the parent */
+.parent-note{display:grid;grid-template-columns:.75fr 1.25fr;gap:1rem 3rem;align-items:start;background:var(--gold-soft);border-radius:28px;padding:clamp(1.6rem,4vw,2.8rem)}
+.parent-note p{font-size:1.2rem;line-height:1.65;color:var(--ink);max-width:34em}
+.parent-note a{font-weight:700;white-space:nowrap}
+@media (max-width:860px){.parent-note{grid-template-columns:1fr}}
 
 /* founders */
 .founders{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .people{display:grid;gap:1.2rem}
-.person{display:grid;grid-template-columns:72px 1fr;gap:1.2rem;align-items:center;padding:1.3rem;background:var(--surface);border-radius:24px;border:1px solid var(--line)}
-.person .av{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.6rem;background:var(--gold-soft);color:var(--ink)}
-.person:nth-child(2) .av{background:var(--sage)}
+.person{display:grid;grid-template-columns:80px 1fr auto;gap:1.2rem;align-items:center;padding:1.3rem;background:var(--surface);border-radius:24px;border:1px solid var(--line);color:inherit;text-decoration:none;transition:border-color .2s}
+.person:hover{border-color:var(--teal)}
+.person .av{width:80px;height:80px;border-radius:50%;object-fit:cover;display:block;background:var(--sage)}
+.person .go{width:22px;height:22px;color:var(--teal)}
 .person p{color:var(--muted);font-size:.97rem;margin-top:.2rem}
 @media (max-width:860px){.founders{grid-template-columns:1fr;gap:2.5rem}}
 
@@ -251,9 +259,15 @@ p{margin:0}
 @media (max-width:520px){.chat-fab span{display:none}.chat-fab{padding:1rem}}
 
 footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
+.foot{display:grid;grid-template-columns:auto 1fr;gap:1.2rem 2rem;align-items:center}
 .foot .brand{font-size:1.25rem}
 .foot .brand img{height:28px;width:auto;display:block}
+.foot-links,.foot-contact{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;list-style:none;margin:0;padding:0}
+.foot-links{justify-content:flex-end}
+.foot-links a{color:var(--muted)}
+.foot-contact a{color:var(--ink);font-weight:600}
+.foot > p{justify-self:end}
+@media (max-width:760px){.foot{grid-template-columns:1fr}.foot-links{justify-content:flex-start}.foot > p{justify-self:start}}
 </style>
 </head>
 <body>
@@ -271,9 +285,23 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       <li><a href="#how">How it works</a></li>
       <li><a href="#safety">Safety</a></li>
       <li><a href="/sample-report/">Sample report</a></li>
+      <li><a href="/about/">About us</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-primary" href="#contact">Book a free call</a>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="#contact">Book a free call</a>
+      <details class="menu">
+        <summary><span class="sr-only">Menu</span><svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+        <ul class="menu-panel">
+          <li><a href="#care">Care</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="/sample-report/">Sample report</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </details>
+    </div>
   </nav>
 </header>
 
@@ -281,7 +309,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
 
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <p class="kicker">Smart elder care in Guwahati</p>
       <h1>The family member <span class="nowrap">on the ground.</span></h1>
       <p class="lede">Your parents live in Guwahati. You live in another city or abroad. Sarovan gives them one local care manager, the same person every time. We call every day, visit every week, look after medicines and appointments, and send every update to your phone.</p>
@@ -295,56 +323,23 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       </div>
     </div>
 
-    <div class="hero-visual" aria-label="Example of the Sarovan family app">
+    <div class="hero-visual">
       <div class="sun" aria-hidden="true"></div>
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="ph-top">
-            <div class="ph-avatar" aria-hidden="true">M</div>
-            <div><b>Maa and Papa</b><small>Care manager: Priyanka</small></div>
-          </div>
-          <div class="vitals">
-            <table class="vitals-table">
-              <thead><tr><td></td><th scope="col">BP</th><th scope="col">Oxygen</th><th scope="col">Sugar</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Maa</th><td>132/84</td><td>97%</td><td>108</td></tr>
-                <tr><th scope="row">Papa</th><td>126/80</td><td>98%</td><td>114</td></tr>
-              </tbody>
-            </table>
-            <svg class="spark" viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 22 L30 18 L60 24 L90 16 L120 19 L150 12 L180 15 L210 10 L240 13" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="240" cy="13" r="3" fill="var(--gold)"/>
-            </svg>
-          </div>
-          <div class="feed">
-            <div class="note">
-              <div class="ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></div>
-              <div><b>Home visit done <time>11:20 am</time></b><p>All readings within the doctor's limits. Papa walked 20 minutes today.</p></div>
-            </div>
-            <div class="note">
-              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></div>
-              <div><b>Medicines refilled <time>12:05 pm</time></b><p>30 days of Maa's tablets delivered home.</p></div>
-            </div>
-            <div class="note">
-              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div>
-              <div><b>Appointment booked <time>2:40 pm</time></b><p>Eye check-up for Papa, Thursday 5 pm.</p></div>
-            </div>
-            <div class="note">
-              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
-              <div><b>Next check-in call</b><p>Tuesday at 6 pm</p></div>
-            </div>
-          </div>
+      <figure class="app-shot">
+        <div class="phone">
+          <img src="/assets/app-family-home.jpg" width="720" height="1337" fetchpriority="high" alt="The Sarovan family app for a sample family, Maa and Papa: the next home visit and check-in call, a lab test waiting for approval, and Maa's latest readings with an amber flag.">
         </div>
-      </div>
-      <div class="landscape" aria-hidden="true">
-        <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
-          <path d="M0 120 C120 70 220 60 330 95 C420 125 480 60 590 50 C700 40 760 100 860 105 C960 110 1040 70 1200 80 V220 H0Z" fill="var(--hill-1)"/>
-          <path d="M0 150 C140 115 260 120 380 140 C500 160 600 110 720 115 C860 120 950 150 1200 135 V220 H0Z" fill="var(--hill-2)"/>
-          <path d="M0 180 C200 165 400 172 600 176 C800 180 1000 168 1200 172 V220 H0Z" fill="var(--hill-3)"/>
-          <path d="M0 198 C150 192 300 204 450 198 S750 192 900 198 1100 204 1200 198" stroke="var(--bg)" stroke-width="2" fill="none" opacity=".6"/>
-        </svg>
-      </div>
+        <figcaption><a class="demo-link" href="https://sarovan-app.web.app/demo" target="_blank" rel="noopener">Try the family app, no login:<br><b>sarovan-app.web.app/demo</b></a></figcaption>
+      </figure>
     </div>
+  </div>
+  <div class="landscape" aria-hidden="true">
+      <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
+        <path d="M0 120 C120 70 220 60 330 95 C420 125 480 60 590 50 C700 40 760 100 860 105 C960 110 1040 70 1200 80 V220 H0Z" fill="var(--hill-1)"/>
+        <path d="M0 150 C140 115 260 120 380 140 C500 160 600 110 720 115 C860 120 950 150 1200 135 V220 H0Z" fill="var(--hill-2)"/>
+        <path d="M0 180 C200 165 400 172 600 176 C800 180 1000 168 1200 172 V220 H0Z" fill="var(--hill-3)"/>
+        <path d="M0 198 C150 192 300 204 450 198 S750 192 900 198 1100 204 1200 198" stroke="var(--bg)" stroke-width="2" fill="none" opacity=".6"/>
+      </svg>
   </div>
 </section>
 
@@ -382,7 +377,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <span class="dot" aria-hidden="true"></span>
         <span class="wk">After every visit</span>
         <h3>Update on your phone</h3>
-        <p>Readings and notes from the visit, so you see trends and not just one number.</p>
+        <p>Readings and notes from the visit, so you see trends and not just one number. Your parent's own doctor sets the safe range for each reading, and the app flags any reading outside it in amber or red.</p>
       </li>
       <li>
         <span class="dot" aria-hidden="true"></span>
@@ -419,7 +414,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       </li>
       <li>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-        <div><h3>Bills, bank work and pension paperwork</h3><p>The annual pension Life Certificate, bank KYC, utility bills and the forms that always come at the wrong time. We sit with your parents and get them done.</p></div>
+        <div><h3>Bills, bank work and pension paperwork</h3><p>The annual pension Life Certificate, bank KYC, utility bills and the forms that always come at the wrong time. We sit with your parents and get them done. We never ask for OTPs, PINs or passwords, and we never handle cash. Your parents always do the last step themselves.</p></div>
       </li>
       <li>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M12 9v3M12 15.5v.01"/></svg></div>
@@ -435,7 +430,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       </li>
       <li>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
-        <div><h3>Updates and records on your phone</h3><p>Every visit, reading, refill and report is saved in the Sarovan family app. You and any doctor can see the full picture. <a href="/sample-report/">See a sample monthly report</a>.</p></div>
+        <div><h3>Updates and records on your phone</h3><p>Every visit, reading, refill and report is saved in the Sarovan family app. You can show the full picture to any doctor, on your phone. <a href="/sample-report/">See a sample monthly report</a>.</p></div>
       </li>
     </ul>
   </div>
@@ -477,7 +472,21 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <h3>Nothing without your say</h3>
         <p>We check with you before ordering medicines or booking appointments.</p>
       </li>
+      <li>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Police-verified</h3>
+        <p>Every care manager we hire is police-verified before their first visit.</p>
+      </li>
     </ul>
+  </div>
+</section>
+
+<section class="section" id="parents" style="padding-top:0">
+  <div class="wrap">
+    <div class="parent-note">
+      <h2>If you are the parent</h2>
+      <p>The same person comes every week, on a fixed day. We speak Assamese, Hindi and English. The first visit is just a conversation, and nothing starts until you are comfortable. If you are ever unsure it is us, call <a href="tel:+918099880272">+91 80998 80272</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -485,17 +494,19 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
   <div class="wrap founders">
     <div>
       <h2>Your care managers are the founders</h2>
-      <p class="lede" style="margin-top:1rem">We're starting small on purpose. For our first families, the two of us are the care managers. We visit your parents ourselves.</p>
+      <p class="lede" style="margin-top:1rem">We're starting with a few families, so we can visit every parent ourselves. For our first families, the two of us are the care managers.</p>
     </div>
     <div class="people">
-      <div class="person">
-        <div class="av" aria-hidden="true">P</div>
-        <div><h3>Priyanka</h3><p>Co-founder and care manager</p></div>
-      </div>
-      <div class="person">
-        <div class="av" aria-hidden="true">K</div>
-        <div><h3>Kuldeep</h3><p>Co-founder and care manager</p></div>
-      </div>
+      <a class="person" href="/about/">
+        <img class="av" src="/assets/priyanka-400.jpg" width="400" height="400" alt="" loading="lazy">
+        <div><h3>Priyanka Gogoi</h3><p>Co-founder and care manager</p></div>
+        <svg class="go" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <a class="person" href="/about/">
+        <img class="av" src="/assets/kuldeep-400.jpg" width="400" height="400" alt="" loading="lazy">
+        <div><h3>Kuldeep Gogoi</h3><p>Co-founder and care manager</p></div>
+        <svg class="go" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -518,7 +529,7 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       </details>
       <details>
         <summary>What costs are not included?</summary>
-        <p>Medicines, lab tests, hospital bills and full-time attendants are paid separately. We arrange these for you, but the cost is yours.</p>
+        <p>Medicines, lab tests, ambulances, hospital bills and full-time attendants are paid separately. We arrange these for you, but the cost is yours.</p>
       </details>
       <details>
         <summary>How much hospital help is included?</summary>
@@ -526,11 +537,11 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
       </details>
       <details>
         <summary>What if my parent falls ill or has an emergency?</summary>
-        <p>Call or WhatsApp us between 6 am and 10 pm, every day. We'll speak to your parent, contact their doctor, and handle hospital admission and insurance paperwork if it's needed. We don't run an ambulance or a 24/7 emergency line yet. In an emergency, call 108 first, then call us. <a href="/if-something-goes-wrong/">Here is exactly what we do, step by step</a>.</p>
+        <p>Call or WhatsApp us. We'll speak to your parent, contact their doctor, and handle hospital admission and insurance paperwork if it's needed. We don't run an ambulance or a 24/7 emergency line yet. In an emergency, call 108 first, then call us. <a href="/if-something-goes-wrong/">Here is exactly what we do, step by step</a>.</p>
       </details>
       <details>
-        <summary>Will you add emergency response and home doctor visits later?</summary>
-        <p>Both are planned. 24/7 emergency support with an ambulance and trained staff needs a team we don't have yet, and we would rather build it properly than announce it early. Doctor consultations at home will follow. Until then we work with the doctors your parents already see.</p>
+        <summary>Will you add emergency support later?</summary>
+        <p>Yes, it is planned. 24/7 emergency support needs a team we don't have yet, and we would rather build it properly than announce it early. Until then, in an emergency, call 108 first, then call us. For everyday care, we work with the doctors your parents already see.</p>
       </details>
       <details>
         <summary>Can you care for a parent who is bedridden or has memory problems?</summary>
@@ -545,12 +556,20 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <p>That's common. Our first visit is just a friendly conversation. We get to know your parents first, and regular care starts only when they're comfortable with us.</p>
       </details>
       <details>
+        <summary>How soon can care start?</summary>
+        <p>As soon as your parents are ready. After our call, we visit them at home to get to know them. Regular visits and calls start once they are comfortable with us.</p>
+      </details>
+      <details>
+        <summary>Who visits if my parent's care manager is ill or away?</summary>
+        <p>The other one of us. Whoever is not your parent's care manager comes to the first visit too, so your parent knows us both. If one of us is ill or away, the other visits.</p>
+      </details>
+      <details>
         <summary>Do you work with my parents' current doctor?</summary>
         <p>Yes. We book appointments with the doctors your parents already trust, and we share the doctor's advice with you after every visit. We don't offer our own doctor consultations yet.</p>
       </details>
       <details>
         <summary>Will you go with my parents to doctor visits?</summary>
-        <p>Not as part of the regular plan. We book the appointment, remind your parents and share the doctor's advice with you. If your parent needs someone with them for an important visit, tell us and we'll try to arrange it.</p>
+        <p>Yes, if you tell us 2 to 3 days before the appointment. Either way, we book it, remind your parents and share the doctor's advice with you.</p>
       </details>
       <details>
         <summary>Which languages do you speak?</summary>
@@ -579,6 +598,10 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <input id="f-name" name="name" autocomplete="name" required>
       </div>
       <div class="field">
+        <label for="f-phone">Your phone number, with country code</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="field">
         <label for="f-city">Where you live</label>
         <input id="f-city" name="city" placeholder="e.g. Bengaluru" autocomplete="address-level2">
       </div>
@@ -587,13 +610,8 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <input id="f-area" name="area" placeholder="e.g. Beltola">
       </div>
       <div class="field">
-        <label for="f-time">Best time to call</label>
-        <select id="f-time" name="time">
-          <option>Morning</option>
-          <option>Afternoon</option>
-          <option selected>Evening</option>
-          <option>Weekend</option>
-        </select>
+        <label for="f-time">Best day and time to call, in your own time</label>
+        <input id="f-time" name="time" placeholder="e.g. Sat 9 am, California">
       </div>
       <p class="form-error" id="f-error" role="alert"></p>
       <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
@@ -612,13 +630,17 @@ footer{padding:2.5rem 0 6rem;color:var(--muted);font-size:.92rem}
         <img src="/assets/sarovan-logo.svg" alt="Sarovan" width="204" height="64">
       </picture>
     </a>
-    <ul class="foot-links" style="display:flex;flex-wrap:wrap;gap:1.2rem;list-style:none;margin:0;padding:0">
+    <ul class="foot-links">
       <li><a href="/sample-report/">Sample report</a></li>
       <li><a href="/if-something-goes-wrong/">If something goes wrong</a></li>
       <li><a href="/about/">About us</a></li>
       <li><a href="/privacy/">Your data</a></li>
     </ul>
-    <p>© 2026 Sarovan</p>
+    <ul class="foot-contact">
+      <li><a href="tel:+918099880272">+91 80998 80272</a></li>
+      <li><a href="mailto:sarovan.care@gmail.com">sarovan.care@gmail.com</a></li>
+    </ul>
+    <p>&copy; 2026 Sarovan</p>
   </div>
 </footer>
 
@@ -639,7 +661,8 @@ document.getElementById("enquiry").addEventListener("submit", function (e) {
   const name = document.getElementById("f-name").value.trim();
   const city = document.getElementById("f-city").value.trim();
   const area = document.getElementById("f-area").value.trim();
-  const time = document.getElementById("f-time").value;
+  const phone = document.getElementById("f-phone").value.trim();
+  const time = document.getElementById("f-time").value.trim();
   const err = document.getElementById("f-error");
   if (!name) {
     err.textContent = "Enter your name so we know who to call.";
@@ -651,10 +674,20 @@ document.getElementById("enquiry").addEventListener("submit", function (e) {
   if (city) msg += " from " + city;
   msg += ". My parents live in Guwahati";
   if (area) msg += " (" + area + ")";
-  msg += ". I'd like a call about your care plan. Best time: " + time + ".";
+  msg += ". I'd like a call about your care plan.";
+  if (phone) msg += " My number: " + phone + ".";
+  if (time) msg += " Best day and time to call: " + time + ".";
   const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
   const w = window.open(url, "_blank", "noopener");
   if (!w) window.location.href = url;
+});
+
+document.querySelectorAll(".menu a").forEach(function (a) {
+  a.addEventListener("click", function () { a.closest("details").removeAttribute("open"); });
+});
+document.addEventListener("keydown", function (e) {
+  var m = document.querySelector(".menu[open]");
+  if (e.key === "Escape" && m) { m.removeAttribute("open"); m.querySelector("summary").focus(); }
 });
 </script>
 </body>

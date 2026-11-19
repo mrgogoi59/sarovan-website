@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Sarovan</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/sarovan-app-icon-180.png">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="/" aria-label="Sarovan home">
+      <picture>
+        <source srcset="/assets/sarovan-logo-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/sarovan-logo.svg" alt="Sarovan" width="204" height="64">
+      </picture>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#care">Care</a></li>
+      <li><a href="/#how">How it works</a></li>
+      <li><a href="/#safety">Safety</a></li>
+      <li><a href="/sample-report/">Sample report</a></li>
+      <li><a href="/about/">About us</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="/#contact">Book a free call</a>
+      <details class="menu">
+        <summary><span class="sr-only">Menu</span><svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+        <ul class="menu-panel">
+          <li><a href="/#care">Care</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#safety">Safety</a></li>
+          <li><a href="/sample-report/">Sample report</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </details>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="notfound">
+  <div class="narrow">
+    <h1>This page doesn't exist.</h1>
+    <p class="lede" style="margin-top:1.3rem">The link may be old, or the address may have a typing mistake.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Go to the home page</a>
+      <a class="btn btn-ghost" href="https://wa.me/918099880272?text=Hi%20Sarovan%2C%20I%27d%20like%20to%20know%20more%20about%20care%20for%20my%20parents%20in%20Guwahati." target="_blank" rel="noopener">Message us on WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/" aria-label="Sarovan home">
+      <picture>
+        <source srcset="/assets/sarovan-logo-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/sarovan-logo.svg" alt="Sarovan" width="204" height="64">
+      </picture>
+    </a>
+    <ul class="foot-links">
+      <li><a href="/sample-report/">Sample report</a></li>
+      <li><a href="/if-something-goes-wrong/">If something goes wrong</a></li>
+      <li><a href="/about/">About us</a></li>
+      <li><a href="/privacy/">Your data</a></li>
+    </ul>
+    <ul class="foot-contact">
+      <li><a href="tel:+918099880272">+91 80998 80272</a></li>
+      <li><a href="mailto:sarovan.care@gmail.com">sarovan.care@gmail.com</a></li>
+    </ul>
+    <p>&copy; 2026 Sarovan</p>
+  </div>
+</footer>
+
+<a class="chat-fab" href="https://wa.me/918099880272?text=Hi%20Sarovan%2C%20I%27d%20like%20to%20know%20more%20about%20care%20for%20my%20parents%20in%20Guwahati." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg>
+  <span>Chat on WhatsApp</span>
+</a>
+
+<script>
+document.querySelectorAll(".menu a").forEach(function (a) {
+  a.addEventListener("click", function () { a.closest("details").removeAttribute("open"); });
+});
+document.addEventListener("keydown", function (e) {
+  var m = document.querySelector(".menu[open]");
+  if (e.key === "Escape" && m) { m.removeAttribute("open"); m.querySelector("summary").focus(); }
+});
+</script>
+</body>
+</html>

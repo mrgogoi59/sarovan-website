@@ -12,7 +12,15 @@
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/sarovan-app-icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarovan.com/privacy/">
+<meta property="og:title" content="Your parent's records and how we handle them | Sarovan">
+<meta property="og:description" content="How Sarovan stores your parent's health records, who can see them, how long we keep them, and how to have them deleted.">
 <meta property="og:image" content="https://sarovan.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sarovan: the family member on the ground, in Guwahati. With the founders, Priyanka Gogoi and Kuldeep Gogoi.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sarovan.com/assets/og-image.png">
 </head>
 <body>
@@ -29,9 +37,24 @@
       <li><a href="/#care">Care</a></li>
       <li><a href="/#how">How it works</a></li>
       <li><a href="/#safety">Safety</a></li>
+      <li><a href="/sample-report/">Sample report</a></li>
+      <li><a href="/about/">About us</a></li>
       <li><a href="/#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-primary" href="/#contact">Book a free call</a>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="/#contact">Book a free call</a>
+      <details class="menu">
+        <summary><span class="sr-only">Menu</span><svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+        <ul class="menu-panel">
+          <li><a href="/#care">Care</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#safety">Safety</a></li>
+          <li><a href="/sample-report/">Sample report</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </details>
+    </div>
   </nav>
 </header>
 
@@ -78,7 +101,7 @@
 
     <h3>3. What we record</h3>
     <ul>
-      <li>Readings taken at each visit: blood pressure, oxygen, blood sugar, weight and similar.</li>
+      <li>Readings taken at each visit: blood pressure, oxygen, blood sugar and similar.</li>
       <li>Medicines, doses, schedules and refill history.</li>
       <li>Prescriptions, test reports and notes from appointments.</li>
       <li>Contact details for your parent and for the family members you add.</li>
@@ -153,6 +176,10 @@
       <li><a href="/about/">About us</a></li>
       <li><a href="/privacy/">Your data</a></li>
     </ul>
+    <ul class="foot-contact">
+      <li><a href="tel:+918099880272">+91 80998 80272</a></li>
+      <li><a href="mailto:sarovan.care@gmail.com">sarovan.care@gmail.com</a></li>
+    </ul>
     <p>&copy; 2026 Sarovan</p>
   </div>
 </footer>
@@ -162,5 +189,14 @@
   <span>Chat on WhatsApp</span>
 </a>
 
+<script>
+document.querySelectorAll(".menu a").forEach(function (a) {
+  a.addEventListener("click", function () { a.closest("details").removeAttribute("open"); });
+});
+document.addEventListener("keydown", function (e) {
+  var m = document.querySelector(".menu[open]");
+  if (e.key === "Escape" && m) { m.removeAttribute("open"); m.querySelector("summary").focus(); }
+});
+</script>
 </body>
 </html>
